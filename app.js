@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://myway-front.vercel.app",
+    origin: "*",
   })
 );
 app.use(express.static("public/image"));
