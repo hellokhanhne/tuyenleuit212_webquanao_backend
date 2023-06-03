@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/myway/api/:path*",
+      "destination": "https://backend-3ydm.onrender.com/myway/api/:path*"
+    },
+    {
+      "source": "/myway/api/:path*/",
+      "destination": "https://backend-3ydm.onrender.com/myway/api/:path*/"
+    }
+  ]
+}
