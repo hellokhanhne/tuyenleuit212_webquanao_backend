@@ -10,6 +10,7 @@ const bookingRouter = require("./routes/bookingRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 const chatRouter = require("./routes/chatRoutes");
 const app = express();
+const path = require("path");
 
 app.use(
   cors({
