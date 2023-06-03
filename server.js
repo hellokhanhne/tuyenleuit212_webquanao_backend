@@ -19,7 +19,7 @@ mongoose
 
 const io = new Server(server, {
   cors: {
-    origin: ["https://myway-front.vercel.app"],
+    origin: ["https://myway-front.vercel.app", "http://localhost:3000"],
   },
 });
 
