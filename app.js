@@ -13,7 +13,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://myway-front.vercel.app", "http://localhost:3000"],
+    origin: [
+      "https://myway-front.vercel.app",
+      "http://localhost:3000",
+      "http://localhost:4000",
+      "https://backend-3ydm.onrender.com",
+    ],
   })
 );
 app.use(express.static("public/image"));
@@ -22,12 +27,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(mongoSanitize());
-app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "hello",
-  });
-});
+
 app.use("/myway/api/products", productRouter);
 app.use("/myway/api/users", userRouter);
 
@@ -35,4 +35,10 @@ app.use("/myway/api/carts", cartRouter);
 app.use("/myway/api/bookings", bookingRouter);
 app.use("/myway/api/reviews", reviewRouter);
 app.use("/myway/api/chats", chatRouter);
+
+app.use(express.static("frontend/build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
+
 module.exports = app;
