@@ -17,8 +17,11 @@ mongoose
     console.log("Connect DB successfull");
   });
 
-const io = new Server(server);
-io.origins("*:*"); // for latest version
+const io = new Server(server, {
+  cors: {
+    origin: ["https://myway-front.vercel.app"],
+  },
+});
 
 io.on("connection", (socket) => {
   console.log(`user connected ${socket.id}`);
