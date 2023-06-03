@@ -17,11 +17,8 @@ mongoose
     console.log("Connect DB successfull");
   });
 
-const io = new Server(server, {
-  cors: {
-    origin: "*:*",
-  },
-});
+const io = new Server(server);
+io.origins("*:*"); // for latest version
 
 io.on("connection", (socket) => {
   console.log(`user connected ${socket.id}`);
